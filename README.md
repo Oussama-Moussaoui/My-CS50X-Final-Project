@@ -10,4 +10,4 @@ The project's title is "CS50 NOTES", as it allows users, after they log in to th
 This web application has many features such as writing whatever comes to the user's mind in a text format, and no one else could see their notes. Also, they can edit or delete their notes whenever they feel like doing it. And lastly, every note comes with the exact date and time they wrote it down.
 
 # CREDIT
-The CSS in this project I did not do it on my own. Most of it was copied from "CS50 finance" (https://finance.cs50.net/). Because I wanted to implement the same style to my project.
+The CSS in this project I did not do it on my own. Most of it was copied from "CS50 finance" (https://finance.cs50.net/). Because I wanted to implement the same style to my project..
