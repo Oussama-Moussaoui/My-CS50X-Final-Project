@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Notes
+{% endblock %}
+
+{% block main %}
+    {% for row in index %}
+        <h3>At <span class="badge badge-secondary">{{row["datetime"]}}</span> you wrote:</h3>
+
+        <p>{{row["note"]}}</p>
+
+        <div class="btn-group">
+            <a href="/edit/{{row['note']}}/{{row['datetime']}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#note_editing{{row['note'][0]}}">Edit</a>
+            <a href="/delete/{{row['note']}}/{{row['datetime']}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete?')">Delete</a>
+        </div>
+
+        <div id="note_editing{{row['note'][0]}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit note</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="/edit/{{row['note']}}/{{row['datetime']}}" method="POST">
+
+                            <div class="form-group">
+                                <label for="note">Note:</label>
+                                <div></div>
+                                <textarea class="form-control" id="note" name="new_note" rows="3">{{row['note']}}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Edit</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}
